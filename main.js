@@ -61,9 +61,15 @@ function formID(number, name) {
     return id;
 }
 
-for (let index = 1; index < amount + 1; index++) {
-    type = getType();
-    document.getElementById(formID(index, typeIDName)).value = type;
-    document.getElementById(formID(index, labelIDName)).innerText = getQuestion(type);
+var myEle = document.getElementById("secondPage");
 
+if (myEle) {
+    console.log('e');
+} else {
+    for (let index = 1; index < amount + 1; index++) {
+        type = getType();
+        document.getElementById(formID(index, typeIDName)).value = type;
+        document.getElementById(formID(index, labelIDName)).innerText = getQuestion(type);
+    }
 }
+

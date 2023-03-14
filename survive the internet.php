@@ -13,6 +13,44 @@
 <body><?php if ($_POST != "" && $_POST != null){ ?>
     <span id="secondPage"></span>
     Welcome <?php echo htmlspecialchars( $_POST["name"] ); ?><br>
+    <div class="redditPage">
+        <div class="post">
+            <p class="title">Posted by <span class="name">Henk</span> 19 minutes ago</p>
+            <h1>This is the title of the post</h1>
+            <div class="postFooter">
+                <p class="footerText">3 comments</p>
+                <p class="footerText">share</p>
+                <p class="footerText">save</p>
+            </div>
+        </div>
+        <div class="comment">
+            <p class="title"><span class="name">Charlie</span> 5 minutes ago</p>
+            <p>Wow, this is a great post!</p>
+            <div class="postFooter">
+                <p class="footerText">reply</p>
+                <p class="footerText">share</p>
+            </div>
+        </div>
+    </div>
+    <div class="redditPage">
+        <div class="post">
+            <p class="title">Posted by <span class="name">Henk</span> 19 minutes ago</p>
+            <h1>This is the title of the post</h1>
+            <div class="postFooter">
+                <p class="footerText">3 comments</p>
+                <p class="footerText">share</p>
+                <p class="footerText">save</p>
+            </div>
+        </div>
+        <div class="comment">
+            <p class="title"><span class="name">Charlie</span> 5 minutes ago</p>
+            <p>Wow, this is a great post!</p>
+            <div class="postFooter">
+                <p class="footerText">reply</p>
+                <p class="footerText">share</p>
+            </div>
+        </div>
+    </div>
     <?php } else { ?>
         <form method="post">
         <label for="fname">Name:</label><br>
