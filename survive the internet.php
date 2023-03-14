@@ -11,9 +11,8 @@
 </head>
 
 <body><?php if ($_POST != "" && $_POST != null){ ?>
-    <span id="secondPage" data-value="<?php echo htmlspecialchars( $_POST["name"] ); ?>"></span>
-    Welcome <br>
-    <div class="page"></div>
+    <span id="secondPage" data-value="<?php echo htmlspecialchars( $_POST["name"] ); ?>"></span><br>
+    <div class="page">
     <div class="redditPage">
         <div class="post" id="post1" data-value="<?php echo htmlspecialchars( $_POST["type1"] ); ?>">
             <p class="title">Posted by <span class="name" id="rName1"></span> <span id="agoTime1" class="title"></span></p>
@@ -109,6 +108,8 @@
             </div>
         </div>
     </div>
+    </div>
+    
     <?php } else { ?>
         <form method="post" class="form">
         <label class="question" for="fname">Username:</label><br>
