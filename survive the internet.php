@@ -16,17 +16,93 @@
     <div class="page"></div>
     <div class="redditPage">
         <div class="post" id="post1" data-value="<?php echo htmlspecialchars( $_POST["type1"] ); ?>">
-            <p class="title">Posted by <span class="name" id="rName1">Henk</span> <span id="agoTime1" class="title"> 19 minutes ago</span></p>
-            <h1 id="title1">This is the title of the post</h1>
+            <p class="title">Posted by <span class="name" id="rName1"></span> <span id="agoTime1" class="title"></span></p>
+            <h1 id="title1"></h1>
             <div class="postFooter">
-                <p class="footerText" id="rComments1">3 comments</p>
+                <p class="footerText" id="rComments1"></p>
                 <p class="footerText">share</p>
                 <p class="footerText">save</p>
             </div>
         </div>
         <div class="comment">
-            <p class="title"><span class="name", id="name1">Charlie</span> a few seconds ago</p>
-            <p id="comment1" data-value="<?php echo htmlspecialchars( $_POST["answer1"] ); ?>">Wow, this is a great post!</p>
+            <p class="title"><span class="name", id="name1"></span> a few seconds ago</p>
+            <p id="comment1" data-value="<?php echo htmlspecialchars( $_POST["answer1"] ); ?>"></p>
+            <div class="postFooter">
+                <p class="footerText">reply</p>
+                <p class="footerText">share</p>
+            </div>
+        </div>
+    </div>
+    <div class="redditPage">
+        <div class="post" id="post2" data-value="<?php echo htmlspecialchars( $_POST["type2"] ); ?>">
+            <p class="title">Posted by <span class="name" id="rName2"></span> <span id="agoTime2" class="title"></span></p>
+            <h1 id="title2"></h1>
+            <div class="postFooter">
+                <p class="footerText" id="rComments2"></p>
+                <p class="footerText">share</p>
+                <p class="footerText">save</p>
+            </div>
+        </div>
+        <div class="comment">
+            <p class="title"><span class="name", id="name2"></span> a few seconds ago</p>
+            <p id="comment2" data-value="<?php echo htmlspecialchars( $_POST["answer2"] ); ?>"></p>
+            <div class="postFooter">
+                <p class="footerText">reply</p>
+                <p class="footerText">share</p>
+            </div>
+        </div>
+    </div>
+    <div class="redditPage">
+        <div class="post" id="post3" data-value="<?php echo htmlspecialchars( $_POST["type3"] ); ?>">
+            <p class="title">Posted by <span class="name" id="rName3"></span> <span id="agoTime3" class="title"></span></p>
+            <h1 id="title3"></h1>
+            <div class="postFooter">
+                <p class="footerText" id="rComments3"></p>
+                <p class="footerText">share</p>
+                <p class="footerText">save</p>
+            </div>
+        </div>
+        <div class="comment">
+            <p class="title"><span class="name", id="name3"></span> a few seconds ago</p>
+            <p id="comment3" data-value="<?php echo htmlspecialchars( $_POST["answer3"] ); ?>"></p>
+            <div class="postFooter">
+                <p class="footerText">reply</p>
+                <p class="footerText">share</p>
+            </div>
+        </div>
+    </div>
+    <div class="redditPage">
+        <div class="post" id="post4" data-value="<?php echo htmlspecialchars( $_POST["type4"] ); ?>">
+            <p class="title">Posted by <span class="name" id="rName4"></span> <span id="agoTime4" class="title"></span></p>
+            <h1 id="title4"></h1>
+            <div class="postFooter">
+                <p class="footerText" id="rComments4"></p>
+                <p class="footerText">share</p>
+                <p class="footerText">save</p>
+            </div>
+        </div>
+        <div class="comment">
+            <p class="title"><span class="name", id="name4"></span> a few seconds ago</p>
+            <p id="comment4" data-value="<?php echo htmlspecialchars( $_POST["answer4"] ); ?>"></p>
+            <div class="postFooter">
+                <p class="footerText">reply</p>
+                <p class="footerText">share</p>
+            </div>
+        </div>
+    </div>
+    <div class="redditPage">
+        <div class="post" id="post5" data-value="<?php echo htmlspecialchars( $_POST["type5"] ); ?>">
+            <p class="title">Posted by <span class="name" id="rName5"></span> <span id="agoTime5" class="title"></span></p>
+            <h1 id="title5"></h1>
+            <div class="postFooter">
+                <p class="footerText" id="rComments5"></p>
+                <p class="footerText">share</p>
+                <p class="footerText">save</p>
+            </div>
+        </div>
+        <div class="comment">
+            <p class="title"><span class="name", id="name5"></span> a few seconds ago</p>
+            <p id="comment5" data-value="<?php echo htmlspecialchars( $_POST["answer5"] ); ?>"></p>
             <div class="postFooter">
                 <p class="footerText">reply</p>
                 <p class="footerText">share</p>
@@ -34,25 +110,25 @@
         </div>
     </div>
     <?php } else { ?>
-        <form method="post">
-        <label for="fname">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
-        <label for="fname" id="label1"></label><br>
+        <form method="post" class="form">
+        <label class="question" for="fname">Username:</label><br>
+        <input class="inputText" type="text" id="name" name="name" required><br>
+        <label class="question" for="fname" id="label1"></label><br>
         <input type="hidden" id="type1" name="type1" />
-        <input type="text" id="answer1" name="answer1" required><br>
-        <label for="fname" id="label2"></label><br>
+        <input class="inputText" type="text" id="answer1" name="answer1" required><br>
+        <label class="question" for="fname" id="label2"></label><br>
         <input type="hidden" id="type2" name="type2" />
-        <input type="text" id="answer2" name="answer2" required><br>
-        <label for="fname" id="label3"></label><br>
+        <input class="inputText" type="text" id="answer2" name="answer2" required><br>
+        <label class="question" for="fname" id="label3"></label><br>
         <input type="hidden" id="type3" name="type3" />
-        <input type="text" id="answer3" name="answer3" required><br>
-        <label for="fname" id="label4"></label><br>
+        <input class="inputText" type="text" id="answer3" name="answer3" required><br>
+        <label class="question" for="fname" id="label4"></label><br>
         <input type="hidden" id="type4" name="type4" />
-        <input type="text" id="answer4" name="answer4" required><br>
-        <label for="fname" id="label5"></label><br>
+        <input class="inputText" type="text" id="answer4" name="answer4" required><br>
+        <label class="question" for="fname" id="label5"></label><br>
         <input type="hidden" id="type5" name="type5" />
-        <input type="text" id="answer5" name="answer5" required><br>
-        <input type="submit">
+        <input class="inputText" type="text" id="answer5" name="answer5" required><br>
+        <input class="submit" type="submit">
     </form> 
     <?php } ?>
 </body>
