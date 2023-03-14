@@ -36,10 +36,19 @@ var twists = {
         "What yells “I have no life”?", "What led you to join Reddit?", "What comes to mind when you hear Morocco?", "What's easy to obtain, but hard to get rid of?",
         "What do you hate?", "What's the craziest thing you snuck on an airplane?", "What factors today would prevent people from having kids?", "what is that food that you don't get tired of eating?"]
 };
+var redditNames = ["JoeBidome", "IAmAnonymousIThink", "khsagfdglga", "Vugtman", "BBQ_Duck"];
 var typeIDName = "type";
 var answerIDName = "answer";
 var labelIDName = "label";
+
+var titleIDName = "title";
+var commentIDName = "comment";
+var rNameIDName = "rName";
+var nameIDName = "name";
+var agoTimeIDName = "agoTime";
+var rCommentsIDName = "rComments";
 var amount = 5;
+var postIDName = "post";
 
 function getQuestion(type) {
     var question = questions[type][Math.floor(Math.random() * questions[type].length)];
@@ -64,7 +73,15 @@ function formID(number, name) {
 var myEle = document.getElementById("secondPage");
 
 if (myEle) {
-    console.log('e');
+    for (let index = 1; index < amount + 1; index++) {
+        type = document.getElementById(formID(index, postIDName)).dataset.value;
+        document.getElementById(formID(index, titleIDName)).innerText = twistIt(type);
+        document.getElementById(formID(index, commentIDName)).innerText = document.getElementById(formID(index, commentIDName)).dataset.value;
+        document.getElementById(formID(index, rNameIDName)).innerText
+        document.getElementById(formID(index, nameIDName)).innerText = myEle.dataset.value;
+        document.getElementById(formID(index, agoTimeIDName)).innerText
+        document.getElementById(formID(index, rCommentsIDName)).innerText
+    }
 } else {
     for (let index = 1; index < amount + 1; index++) {
         type = getType();

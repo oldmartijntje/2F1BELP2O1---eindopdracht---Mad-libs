@@ -11,40 +11,22 @@
 </head>
 
 <body><?php if ($_POST != "" && $_POST != null){ ?>
-    <span id="secondPage"></span>
-    Welcome <?php echo htmlspecialchars( $_POST["name"] ); ?><br>
+    <span id="secondPage" data-value="<?php echo htmlspecialchars( $_POST["name"] ); ?>"></span>
+    Welcome <br>
+    <div class="page"></div>
     <div class="redditPage">
-        <div class="post">
-            <p class="title">Posted by <span class="name">Henk</span> 19 minutes ago</p>
-            <h1>This is the title of the post</h1>
+        <div class="post" id="post1" data-value="<?php echo htmlspecialchars( $_POST["type1"] ); ?>">
+            <p class="title">Posted by <span class="name" id="rName1">Henk</span> <span id="agoTime1" class="title"> 19 minutes ago</span></p>
+            <h1 id="title1">This is the title of the post</h1>
             <div class="postFooter">
-                <p class="footerText">3 comments</p>
+                <p class="footerText" id="rComments1">3 comments</p>
                 <p class="footerText">share</p>
                 <p class="footerText">save</p>
             </div>
         </div>
         <div class="comment">
-            <p class="title"><span class="name">Charlie</span> 5 minutes ago</p>
-            <p>Wow, this is a great post!</p>
-            <div class="postFooter">
-                <p class="footerText">reply</p>
-                <p class="footerText">share</p>
-            </div>
-        </div>
-    </div>
-    <div class="redditPage">
-        <div class="post">
-            <p class="title">Posted by <span class="name">Henk</span> 19 minutes ago</p>
-            <h1>This is the title of the post</h1>
-            <div class="postFooter">
-                <p class="footerText">3 comments</p>
-                <p class="footerText">share</p>
-                <p class="footerText">save</p>
-            </div>
-        </div>
-        <div class="comment">
-            <p class="title"><span class="name">Charlie</span> 5 minutes ago</p>
-            <p>Wow, this is a great post!</p>
+            <p class="title"><span class="name", id="name1">Charlie</span> a few seconds ago</p>
+            <p id="comment1" data-value="<?php echo htmlspecialchars( $_POST["answer1"] ); ?>">Wow, this is a great post!</p>
             <div class="postFooter">
                 <p class="footerText">reply</p>
                 <p class="footerText">share</p>
