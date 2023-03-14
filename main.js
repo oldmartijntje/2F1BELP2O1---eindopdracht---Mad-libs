@@ -3,7 +3,7 @@ var questions = {
     "location": ["Where did you grow up?", "Where do you live now?", "Where do you want to live?", "Where do you want to go on vacation?",
         "What's a location you dispise?", "What's a location you love?", "What's a location you've always wanted to visit?", "What's a location you've always wanted to live in?",
         "What's the last place you have been?", "What is a great place to eat?", "What is a great place to shop?", "What is a great place to visit?", "What is a great place to live?",
-        "Last place you have pooped?", "Last place you have peed?", "Last place you have slept?", "Last place you have eaten?", "Last place you have drank?", "Last place you have smoked?"],
+        "Last place you have pooped?", "If you could live in any fictional world from a book, movie, or TV show, which one would you choose?", "Last place you have peed?", "Last place you have slept?", "Last place you have eaten?", "Last place you have drank?", "Last place you have smoked?"],
     "people": ["Who is your favorite person?", "Who is your least favorite person?", "Who is your best friend?", "Who is your worst enemy?", "Who is your favorite celebrity?", "Who is your least favorite celebrity?",
         "Who would you want to be stuck on a deserted island with?", "Who would you want to be stuck in a elevator with?", "Who would you want to be stuck in a car with?", "Who would you want to be stuck in a house with?",
         "What is your mom's name?", "What is your dad's name?", "What is your best friend's name?", "What is your worst enemy's name?", "What is your favorite celebrity's name?", "Who would you want to rickroll?",
@@ -20,12 +20,12 @@ var questions = {
     ],
     "objects": ["What do you have too many of?", "What's the weirdest movie you have ever seen?", "What is something you like to eat?", "What is something you like to drink?",
         "What is your favourite recipe to cook?", "What food would you buy more often if it was cheaper?", "What animal that's usually considered ugly do you find cute?", "What is your favorite alcoholic drink?", "Best movie ever?", "The most annoying thing you have ever seen?", "What's the most annoying thing you have ever smelled?", "The best things to eat with chopsticks?", "What's the best comedy movie you have ever watched?",
-        "What smell reminds you of being in elementary school?", "It's Pi day. What kind of pie are you having?", "what are the best games to play when going pooping?", "If you could live in any fictional world from a book, movie, or TV show, which one would you choose?", "What is your favorite type of pie?", "What's the most recent thing you bought online?", "What's the best breakfast?"],
+        "What smell reminds you of being in elementary school?", "It's Pi day. What kind of pie are you having?", "what are the best games to play when going pooping?", "What is your favorite type of pie?", "What's the most recent thing you bought online?", "What's the best breakfast?"],
     "thoughts": ["What do you guys think about when trying to sleep?", "Whats something you wish you knew earlier?!", "What is your favorite memory of a grandparent?", "what movie fan theory actually sounds plausible?", "What is the biggest lie you've told and got successfully away with?", "Reddit, what's your idea of the perfect day?", "Reddit, what seemed like a good idea at the time?", "A possible way the world could end", "How do you think the world will end?", "Something you would want to happen.", "Describe a possible future.", "A memory taken out of context", "Describe a scene from a movie", "Something you would do if the law didn't exist for an hour.", "Something to prevent at all costs", "Something you would change if you could time travel?", "Best movie scene?", "What do you want to happen in the future", "What's the weirdest dream you've ever had?", "What's the most unsettling dream you've ever had?", "What's something you thought would be great but wasn't?"]
 };
 var twists = {
-    "location": ["Where would you move if you got kicked out of your country but you could go anywhere?", "What is a place you would want destroyed?", "[NSFW] Where did you lose your virginity?", "Best place to hide drugs?", "Where would you want to be burried if you died?",
-        "Locations for the perfect date, help me out.", "Bucketlist ideas: What are some good places I should visit?", "What's your favourite place to be kissed?"],
+    "location": ["What's a place you want removed from existance.", "Which location that could as well be marketed as a maze.", "[NSFW] What location are you not suprised if someone made a video on the hub there?", "What's a place you regret visiting?", "What's a location you expect to find homeless people?", "[NSFW] Safest location to browse the hub?", "After leaving this place, where are you suprised that you are still alive and not murdered?", "What place do you expect to find a dead body", "Where would you move if you got kicked out of your country but you could go anywhere?", "What is a place you would want destroyed?", "[NSFW] Where did you lose your virginity?", "Best place to hide drugs?", "Where would you want to be burried if you died?",
+        "Where did you have your first kiss?", "[NSFW] What's the worst place to lose your virginity?", "Best place to break up with someone.", "Last place you have pooped.", "Where does the monster underneath your bed come from?", "What's the best place to be stuck inside of?", "What place screams I hate kids?", "Most dangerous location you have been", "Locations for the perfect date, help me out.", "Bucketlist ideas: What are some good places I should visit?", "What's your favourite place to be kissed?"],
     "people": ["Give me date ideas.", "Who would you want to date?", "Who do you want to bury alive?", "Leave names of people you have slept with in the comments.", "Most attractive person on earth.",
         "Whose pictures do you secretly have printed on your walls?", "What is something small that has caused someone to lose their life?", "What's easy to obtain, but hard to get rid of?",
         "Who are you?", "What do you hate?", "What factors today would prevent people from having kids?", "Who is the most famous person with the least amount of haters?"],
@@ -97,7 +97,6 @@ function getType() {
 
 function formID(number, name) {
     id = `${name}${number}`;
-    console.log(id)
     return id;
 }
 
