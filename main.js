@@ -1,4 +1,4 @@
-var types = ["location", "people", "activity", "objects", "activity", "objects", "people", "thoughts"];
+var types = ["location", "people", "activity", "objects", "activity", "objects", "people"];
 var questions = {
     "location": ["Where did you grow up?", "Where do you live now?", "Where do you want to live?", "Where do you want to go on vacation?",
         "What's a location you dispise?", "What's a location you love?", "What's a location you've always wanted to visit?", "What's a location you've always wanted to live in?",
@@ -43,7 +43,7 @@ var twists = {
         "What's a word you still have trouble spelling in your adult life?", "What is something small that has caused someone to lose their life?", "What is something small that has caused someone to lose their life?", "What do you have too many of?", "What instantly comes to mind when you hear 'Greece'?",
         "Good morning! If you could have a lifetime supply of anything, what would it be?", "If you could only eat 1 food for the rest of your life, what would you choose?", "What yells “I have no life”?", "What led you to join Reddit?", "What comes to mind when you hear Morocco?", "What's easy to obtain, but hard to get rid of?",
         "What do you hate?", "What's the craziest thing you snuck on an airplane?", "What factors today would prevent people from having kids?", "what is that food that you don't get tired of eating?",
-        "If you could only have one type of candy for the rest of your life, what candy would you choose?", "In the event of world apocalypse, what would be used as the new currency?", "You find a basket that constantly duplicates anything you but in it, what will you put in it (besides money)?", "What made you first feel 'old'?", "What's a movie that always makes you laugh, no matter how many times you've seen it?", "What do you reccomend to eat with chopsticks?", "What are your dreams like?"],
+        "If you could only have one type of candy for the rest of your life, what candy would you choose?", "In the event of world apocalypse, what would be used as the new currency?", "You find a basket that constantly duplicates anything you but in it, what will you put in it (besides money)?", "What made you first feel 'old'?", "What's a movie that always makes you laugh, no matter how many times you've seen it?", "What do you reccomend to eat with chopsticks?"],
     "thoughts": ["If you could witness one moment from history, what would it be and why?", "What do you think is the most important social event in history?", "What's something that has been said to you that's still stuck in your head?", "What's an experience you'll never forget?", "What was the weirdest idea you had as a kid?", "What is your crazy idea that just might work?", "What is an unpopulair dream you hope will come true.", "What is the best way to die?", "[NSFW] What's a thing you searched on the Hub just because you were curious if it existed?", "[NSFW] A thing you secretly want to do, but don't for reasons.", "Reddit, what thought scares you to no end?", "What is the most inappropriate thought you've ever had?", "What is the best dream you ever had?", "What was the most recent dream you had?", "What's something you always thought was \"normal,\" but really isn't", "What is the deepest thought you've ever had?"]
 };
 var redditNames = ["JoeBidome", "IAmAnonymousIThink", "khsagfdglga", "Vugtman", "BBQ_Duck", "BeardMan", "FriendlyNeighbourHoodMan", 'thomas', 'thom', 'muik', 'coen', 'staninna', 'stijn', 'florida man', 'mandrex', 'bob', 'grian', 'mumbo jumbo', 'scar', '[CLASSEFIED]', 'george',
@@ -80,6 +80,8 @@ var agoTimeIDName = "agoTime";
 var rCommentsIDName = "rComments";
 var amount = 5;
 var postIDName = "post";
+
+var hiddenSidebar = false;
 
 function getQuestion(type) {
     var question = questions[type][Math.floor(Math.random() * questions[type].length)];
@@ -119,4 +121,14 @@ if (myEle) {
         document.getElementById(formID(index, labelIDName)).innerText = getQuestion(type);
     }
 }
-
+function sidebarClick() {
+    if (hiddenSidebar) {
+        document.getElementById("sidebar").style.display = "block";
+        hiddenSidebar = false;
+        document.getElementById("content").style.marginLeft = "250px";
+    } else {
+        document.getElementById("sidebar").style.display = "none";
+        hiddenSidebar = true;
+        document.getElementById("content").style.marginLeft = "0px";
+    }
+}

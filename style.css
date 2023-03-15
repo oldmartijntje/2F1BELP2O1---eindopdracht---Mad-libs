@@ -141,3 +141,50 @@
 .submit:hover {
     background-color: #1565c0;
 }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #1a1a1b;
+    padding: 20px;
+}
+
+.content {
+    margin-left: 250px;
+    /* adjust this value to match the width of your sidebar */
+}
+
+.sidebar * {
+    background-color: #1a1a1b;
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sidebarText {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#sideBarToggle {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#sideBarToggle:hover {
+    cursor: pointer;
+}

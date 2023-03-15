@@ -10,7 +10,16 @@
     <script src="main.js" defer></script>
 </head>
 
-<body><?php if ($_POST != "" && $_POST != null){ ?>
+<body>
+<div class="sidebar" id="sidebar">
+    <header class="title" class="hideWhenHidden">
+        <img src="reddit-logo.png" class="logo" alt="">
+        <h1 class="sidebarText">Freddit</h1>
+    </header>
+  </div>
+  <div class="content" id="content">
+  <button id="sideBarToggle" onclick="sidebarClick()">=</button>
+  <?php if ($_POST != "" && $_POST != null){ ?>
     <span id="secondPage" data-value="<?php echo htmlspecialchars( $_POST["name"] ); ?>"></span><br>
     <div class="page">
     <div class="redditPage">
@@ -132,4 +141,5 @@
         <input class="submit" type="submit">
     </form> 
     <?php } ?>
+  </div>
 </body>
