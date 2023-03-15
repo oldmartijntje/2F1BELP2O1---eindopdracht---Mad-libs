@@ -12,15 +12,21 @@
 
 <body>
 <div class="sidebar" id="sidebar">
+    <div class="sidebarContent">
     <header class="title">
         <img src="reddit-logo.png" class="logo" alt="">
         <h1 class="sidebarText">Freddit</h1>
     </header>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="clickable"><div class="clickable">
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="clickable marginBottom"><div class="clickable marginBottom">
     <img src="yt.png" class="logo clickable marginLeft" alt="">
         <h3 class="sidebarText clickable">The creation of..</h3>
         </div></a>
+        </div><footer class="marginBottom footer"><a href="https://github.com/oldmartijntje" class="clickable"><div class="clickable">
+    <img src="oldmartijntje.png" class="logo clickable marginLeft" alt="">
+        <p class="sidebarText clickable">OldMartijntje 2023©</p>
+        </div></a></footer>
   </div>
+  
   <div class="content" id="content">
   <button id="sideBarToggle" onclick="sidebarClick()"><img id="sideBarToggleImg" class="logo grey" src="toggle.png" alt=""></button>
   <?php if ($_POST != "" && $_POST != null){ ?>

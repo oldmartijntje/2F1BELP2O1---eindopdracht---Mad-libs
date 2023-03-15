@@ -170,6 +170,7 @@
 .logo {
     display: inline-block;
     vertical-align: middle;
+    border-radius: 1rem;
 }
 
 .sidebarText {
@@ -208,4 +209,12 @@
 
 .marginLeft {
     margin-left: 1rem;
+}
+
+.marginBottom {
+    margin-bottom: 1rem;
+}
+
+.footer {
+    margin-top: calc(100vh - 250px);
 }
