@@ -126,9 +126,12 @@ function sidebarClick() {
         document.getElementById("sidebar").style.display = "block";
         hiddenSidebar = false;
         document.getElementById("content").style.marginLeft = "250px";
+        document.getElementById("sideBarToggleImg").src = "cross.png";
     } else {
         document.getElementById("sidebar").style.display = "none";
         hiddenSidebar = true;
         document.getElementById("content").style.marginLeft = "0px";
+        document.getElementById("sideBarToggleImg").src = "toggle.png";
     }
 }
+sidebarClick()
