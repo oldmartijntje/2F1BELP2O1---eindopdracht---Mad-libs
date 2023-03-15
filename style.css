@@ -165,12 +165,8 @@
     width: 2rem;
     height: 2rem;
     margin: 0 auto;
-}
-
-.logo {
     display: inline-block;
     vertical-align: middle;
-    border-radius: 1rem;
 }
 
 .sidebarText {
@@ -217,4 +213,8 @@
 
 .footer {
     margin-top: calc(100vh - 250px);
+}
+
+.borderRadius {
+    border-radius: 1rem;
 }

@@ -22,7 +22,7 @@
         <h3 class="sidebarText clickable">The creation of..</h3>
         </div></a>
         </div><footer class="marginBottom footer"><a href="https://github.com/oldmartijntje" class="clickable"><div class="clickable">
-    <img src="oldmartijntje.png" class="logo clickable marginLeft" alt="">
+    <img src="oldmartijntje.png" class="logo clickable marginLeft borderRadius" alt="">
         <p class="sidebarText clickable">OldMartijntje 2023©</p>
         </div></a></footer>
   </div>
