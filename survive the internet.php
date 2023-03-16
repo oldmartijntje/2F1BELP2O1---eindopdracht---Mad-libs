@@ -30,6 +30,15 @@
   <div class="content" id="content">
   <button id="sideBarToggle" onclick="sidebarClick()"><img id="sideBarToggleImg" class="logo grey" src="toggle.png" alt=""></button>
   <?php if ($_POST != "" && $_POST != null){ ?>
+    <script>
+        var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
+        console.log(obj);
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                console.log(key + " -> " + obj[key]);
+            }
+        }
+    </script>
     <span id="secondPage" data-value="<?php echo htmlspecialchars( $_POST["name"] ); ?>"></span><br>
     <div class="page">
     <div class="redditPage">
@@ -131,6 +140,7 @@
     
     <?php } else { ?>
         <form method="post" class="form">
+        <input type="hidden" id="amount" name="amount" value="5" />
         <label class="question" for="fname">Username:</label><br>
         <input class="inputText" type="text" id="name" name="name" required><br>
         <label class="question" for="fname" id="label1"></label><br>
