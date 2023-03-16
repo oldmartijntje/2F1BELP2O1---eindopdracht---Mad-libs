@@ -50,9 +50,13 @@ var rNameIDName = "rName";
 var nameIDName = "name";
 var agoTimeIDName = "agoTime";
 var rCommentsIDName = "rComments";
+var postIDName = "post";
+var shareButtonIDName = "share";
+var shareButtonCommentIDName = "shareComment";
 
 function createPost(index, type, answer, name) {
-    var post = createElement("div", ["post"], formID(index, "post"), "", type);
+    var redditPage = createElement("div", ["redditPage"], "redditPage");
+    var post = createElement("div", ["post"], formID(index, postIDName), "", type);
     var postedBy = createElement("p", ["title"]);
     var postedByText = document.createTextNode("Posted by ")
     var postedByTextSpace = document.createTextNode(" ")
@@ -60,11 +64,32 @@ function createPost(index, type, answer, name) {
     var postedBySpan2 = createElement("span", ["title"], formID(index, agoTimeIDName));
     var title = createElement("h1", [], formID(index, titleIDName));
     var postFooter = createElement("div", ["postFooter"]);
-    assambler([[postedBy, postedByText, postedBySpan1, postedByTextSpace, postedBySpan2], [post, postedBy, title, postFooter]]);
+    var commentButtonFooter = createElement("a", ["footerText"], formID(index, rCommentsIDName), "comment");
+    var shareButtonFooter = createElement("a", ["footerText"], formID(index, shareButtonIDName), "share", '', 'Submit to Reddit');
+    shareButtonFooter.target = "_blank"
+    var saveButtonFooter = createElement("a", ["footerText"], '', "save");
+    console.log(document.getElementById("redditPage"))
+    assambler([[postedBy, postedByText, postedBySpan1, postedByTextSpace, postedBySpan2], [post, postedBy, title, postFooter], [postFooter, commentButtonFooter, shareButtonFooter, saveButtonFooter]]);
+
+    var comment = createElement("div", ["comment"]);
+    var commentHeader = createElement("p", ["title"]);
+    var commentHeaderName = createElement("span", ["name"], formID(index, nameIDName));
+    var commentHeaderTime = document.createTextNode(" a few seconds ago")
+    var commentText = createElement("p", [], formID(index, commentIDName), "", answer);
+    var commentFooter = createElement("div", ["comment"]);
+    var commentFooterReply = createElement("a", ["footerText"], '', 'reply');
+    var commentFooterShare = createElement("a", ["footerText"], formID(index, shareButtonCommentIDName), 'share', '', 'Submit to Reddit');
+    commentFooterShare.target = "_blank"
+    assambler()
+
+
+
+
+    assambler([[redditPage, post], [document.getElementById("fullPage"), redditPage]])
     console.log(post)
 }
 
-function assambler(pieces) {
+function assambler(pieces = []) {
     for (var i = 0; i < pieces.length; i++) {
         for (var j = 1; j < pieces[i].length; j++) {
             pieces[i][0].appendChild(pieces[i][j]);
@@ -72,7 +97,7 @@ function assambler(pieces) {
     }
 }
 
-function createElement(type, classesList, id = '', text = '', dataValue = '') {
+function createElement(type, classesList, id = '', text = '', dataValue = '', title = '') {
     var element = document.createElement(type);
     classesList.forEach(classOfList => {
         element.classList.add(classOfList);

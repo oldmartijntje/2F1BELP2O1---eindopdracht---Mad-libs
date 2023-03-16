@@ -30,9 +30,6 @@ var labelIDName = "label";
 
 
 var amount = 5;
-var postIDName = "post";
-var shareButtonIDName = "share";
-var shareButtonCommentIDName = "shareComment";
 
 var hiddenSidebar = false;
 
