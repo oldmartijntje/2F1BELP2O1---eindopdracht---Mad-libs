@@ -80,6 +80,8 @@ var agoTimeIDName = "agoTime";
 var rCommentsIDName = "rComments";
 var amount = 5;
 var postIDName = "post";
+var shareButtonIDName = "share";
+var shareButtonCommentIDName = "shareComment";
 
 var hiddenSidebar = false;
 
@@ -113,6 +115,10 @@ if (myEle) {
         document.getElementById(formID(index, nameIDName)).innerText = `u\\${myEle.dataset.value}`;
         document.getElementById(formID(index, agoTimeIDName)).innerText = ` ${Math.floor(Math.random() * 57) + 2} minutes ago`
         document.getElementById(formID(index, rCommentsIDName)).innerText = `${Math.floor(Math.random() * 14) + 2} comments`
+        var urlPart = encodeURIComponent(`Burned by Freddit: Q=${document.getElementById(formID(index, titleIDName)).innerText} A=${document.getElementById(formID(index, commentIDName)).innerText}`.trim());
+        var url = `http://www.reddit.com/submit?url=${encodeURIComponent('https://github.com/oldmartijntje/2F1BELP2O1---eindopdracht---Mad-libs')}&title=${urlPart}`
+        document.getElementById(formID(index, shareButtonIDName)).href = url
+        document.getElementById(formID(index, shareButtonCommentIDName)).href = url
     }
 } else {
     for (let index = 1; index < amount + 1; index++) {
@@ -134,4 +140,4 @@ function sidebarClick() {
         document.getElementById("sideBarToggleImg").src = "toggle.png";
     }
 }
-sidebarClick()
+sidebarClick();

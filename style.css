@@ -50,14 +50,14 @@
     margin-top: 10px;
 }
 
-.postFooter p {
+.postFooter .footerText {
     margin-right: 10px;
     font-size: 14px;
     color: #656565;
     cursor: pointer;
 }
 
-.postFooter p:hover {
+.postFooter .footerText:hover {
     color: #0079d3;
 }
 
