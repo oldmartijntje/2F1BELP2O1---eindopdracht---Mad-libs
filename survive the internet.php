@@ -13,27 +13,37 @@
 <body>
 <div class="sidebar" id="sidebar">
     <div class="sidebarContent">
-    <header class="title">
-        <img src="reddit-logo.png" class="logo" alt="">
-        <h1 class="sidebarText">Freddit</h1>
-    </header>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="clickable marginBottom"><div class="clickable marginBottom">
-    <img src="yt.png" class="logo clickable marginLeft" alt="">
-        <h3 class="sidebarText clickable">The creation of..</h3>
-        </div></a>
-        </div><footer class="marginBottom footer"><a target="_blank" href="https://github.com/oldmartijntje" class="clickable"><div class="clickable">
-    <img src="oldmartijntje.png" class="logo clickable marginLeft borderRadius" alt="">
-        <p class="sidebarText clickable">OldMartijntje 2023©</p>
-        </div></a></footer>
-  </div>
+        <header class="title">
+            <img src="reddit-logo.png" class="logo" alt="">
+            <h1 class="sidebarText">Freddit</h1>
+        </header>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" class="clickable sidebarItem marginBottom">
+            <div class="clickable sidebarItem marginBottom">
+                <img src="yt.png" class="logo clickable marginLeft sidebarItem" alt="">
+                <h3 class="sidebarText clickable sidebarItem">The creation of..</h3>
+            </div>
+        </a>
+        <div class="marginBottom sidebarItem">
+            <h3 class="sidebarItem sidebarText marginLeft" style="margin-bottom: 0px;">Amount of questions</h3>
+            <input type="number" class="marginLeft borderRadius marginBottom" value='5' style="width: 165px;" onchange="changeAmount()" id="questionAmountBox">
+        </div>
+    </div> 
+    <footer class="marginBottom footer">
+        <a target="_blank" href="https://github.com/oldmartijntje" class="clickable sidebarItem">
+            <div class="clickable sidebarItem">
+                <img src="oldmartijntje.png" class="logo clickable sidebarItem marginLeft borderRadius" alt="">
+                <p class="sidebarText clickable sidebarItem">OldMartijntje 2023©</p>
+            </div>
+        </a>
+    </footer>
+</div>
   
-  <div class="content" id="content">
-  <button id="sideBarToggle" onclick="sidebarClick()"><img id="sideBarToggleImg" class="logo grey" src="toggle.png" alt=""></button>
-  <?php if ($_POST != "" && $_POST != null){ ?>
+<div class="content" id="content">
+<button id="sideBarToggle" class="marginBottom" onclick="sidebarClick()"><img id="sideBarToggleImg" class="logo grey" src="toggle.png" alt=""></button>
+<?php if ($_POST != "" && $_POST != null){ ?>
     <span id="secondPage"></span><br>
     <script>
         var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
-        console.log(obj);
         amount = 0;
         amount = obj["amount"];
         document.getElementById("secondPage").setAttribute("data-value", obj["name"]);
@@ -48,27 +58,30 @@
             }
         </script>
     <?php } else { ?>
-        <form method="post" class="form">
-        <input type="hidden" id="amount" name="amount" value="5" />
-        <label class="question" for="fname">Username:</label><br>
-        <input class="inputText" type="text" id="name" name="name" required><br>
-        <label class="question" for="fname" id="label1"></label><br>
-        <input type="hidden" id="type1" name="type1" />
-        <input class="inputText" type="text" id="answer1" name="answer1" required><br>
-        <label class="question" for="fname" id="label2"></label><br>
-        <input type="hidden" id="type2" name="type2" />
-        <input class="inputText" type="text" id="answer2" name="answer2" required><br>
-        <label class="question" for="fname" id="label3"></label><br>
-        <input type="hidden" id="type3" name="type3" />
-        <input class="inputText" type="text" id="answer3" name="answer3" required><br>
-        <label class="question" for="fname" id="label4"></label><br>
-        <input type="hidden" id="type4" name="type4" />
-        <input class="inputText" type="text" id="answer4" name="answer4" required><br>
-        <label class="question" for="fname" id="label5"></label><br>
-        <input type="hidden" id="type5" name="type5" />
-        <input class="inputText" type="text" id="answer5" name="answer5" required><br>
-        <input class="submit" type="submit">
-    </form> 
+        <form method="post">
+            <input type="hidden" id="amount" name="amount" value="5" />
+            <div id="questions" class="form">
+                <label class="question" for="fname">Username:</label>
+                <input class="inputText" type="text" id="name" name="name" required><br>
+
+                <label class="question" for="fname" id="label1"></label>
+                <input type="hidden" id="type1" name="type1" />
+                <input class="inputText" type="text" id="answer1" name="answer1" required><br>
+                <label class="question" for="fname" id="label2"></label>
+                <input type="hidden" id="type2" name="type2" />
+                <input class="inputText" type="text" id="answer2" name="answer2" required><br>
+                <label class="question" for="fname" id="label3"></label>
+                <input type="hidden" id="type3" name="type3" />
+                <input class="inputText" type="text" id="answer3" name="answer3" required><br>
+                <label class="question" for="fname" id="label4"></label>
+                <input type="hidden" id="type4" name="type4" />
+                <input class="inputText" type="text" id="answer4" name="answer4" required><br>
+                <label class="question" for="fname" id="label5"></label>
+                <input type="hidden" id="type5" name="type5" />
+                <input class="inputText" type="text" id="answer5" name="answer5" required><br>
+            </div>
+            <input class="submit" type="submit">
+        </form> 
     <?php } ?>
-  </div>
+    </div>
 </body>

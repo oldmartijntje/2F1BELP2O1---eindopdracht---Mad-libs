@@ -28,8 +28,9 @@ var typeIDName = "type";
 var answerIDName = "answer";
 var labelIDName = "label";
 
-
 var amount = 5;
+var lastAmount = 0;
+var blocked = false;
 
 var hiddenSidebar = false;
 
@@ -50,14 +51,10 @@ function formID(number, name) {
 var myEle = document.getElementById("secondPage");
 
 if (myEle) {
-    for (let index = 1; index < amount + 1; index++) {
-
-    }
+    blocked = true;
 } else {
     for (let index = 1; index < amount + 1; index++) {
-        type = getType();
-        document.getElementById(formID(index, typeIDName)).value = type;
-        document.getElementById(formID(index, labelIDName)).innerText = getQuestion(type);
+
     }
 }
 function sidebarClick() {
@@ -74,3 +71,67 @@ function sidebarClick() {
     }
 }
 sidebarClick();
+
+function createQuestions(index) {
+    label = createElement("label", ["question"], formID(index, labelIDName));
+    label.for = "fname";
+    hiddenInput = createElement("input", [], formID(index, typeIDName));
+    hiddenInput.name = formID(index, typeIDName);
+    hiddenInput.type = "hidden";
+    questionInput = createElement("input", ["inputText"], formID(index, "answer"));
+    questionInput.type = "text";
+    questionInput.required = true;
+    type = getType();
+    document.getElementById(formID(index, typeIDName)).value = type;
+    document.getElementById(formID(index, labelIDName)).innerText = getQuestion(type);
+    assambler([[document.getElementById("questions"), label, hiddenInput, questionInput]]);
+}
+
+function changeAmount() {
+    if (blocked) {
+        return;
+    }
+    amount = document.getElementById("questionAmountBox").value;
+    if (amount > lastAmount) {
+        for (let index = 0; index < amount; index++) {
+            if (index > lastAmount) {
+                createQuestions(index);
+            }
+        }
+    } else if (amount < lastAmount) {
+        for (let index = 0; index < lastAmount; index++) {
+            if (index > amount) {
+                deleteQuestions(index);
+            }
+        }
+    }
+}
+
+function assambler(pieces = []) {
+    for (var i = 0; i < pieces.length; i++) {
+        for (var j = 1; j < pieces[i].length; j++) {
+            pieces[i][0].appendChild(pieces[i][j]);
+        }
+    }
+}
+
+function createElement(type, classesList, id = '', text = '', dataValue = '', title = '') {
+    var element = document.createElement(type);
+    classesList.forEach(classOfList => {
+        element.classList.add(classOfList);
+    });
+    if (id != '') {
+        element.id = id;
+    }
+    element.dataset.value = dataValue;
+    element.innerText = text;
+    return element;
+}
+
+function deleteQuestions(index) {
+    document.getElementById(formID(index, typeIDName)).remove();
+    document.getElementById(formID(index, answerIDName)).remove();
+    document.getElementById(formID(index, labelIDName)).remove();
+}
+
+changeAmount()

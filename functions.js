@@ -104,7 +104,6 @@ function createElement(type, classesList, id = '', text = '', dataValue = '', ti
 }
 
 function twistIt(type) {
-    console.log(type)
     var twist = twists[type][Math.floor(Math.random() * twists[type].length)];
     return twist;
 }

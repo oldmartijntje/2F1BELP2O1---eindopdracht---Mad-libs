@@ -190,11 +190,6 @@
     background-color: #333;
 }
 
-.clickable {
-    border-radius: 1rem;
-    background-color: #333;
-}
-
 .clickable :hover {
     background-color: #424242;
 }
@@ -212,7 +207,20 @@
 }
 
 .footer {
-    margin-top: calc(100vh - 250px);
+    margin-top: calc(100vh - 350px);
+}
+
+.borderRadius {
+    border-radius: 1rem;
+}
+
+.margin {
+    margin: 1rem;
+}
+
+.sidebarItem {
+    border-radius: 1rem;
+    background-color: #333;
 }
 
 .borderRadius {
