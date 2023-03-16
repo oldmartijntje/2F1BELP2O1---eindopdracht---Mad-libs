@@ -30,16 +30,21 @@
   <div class="content" id="content">
   <button id="sideBarToggle" onclick="sidebarClick()"><img id="sideBarToggleImg" class="logo grey" src="toggle.png" alt=""></button>
   <?php if ($_POST != "" && $_POST != null){ ?>
+    <span id="secondPage"></span><br>
     <script>
         var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
         console.log(obj);
-        for (var key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                console.log(key + " -> " + obj[key]);
-            }
+        amount = 0;
+        amount = obj["amount"];
+        document.getElementById("secondPage").setAttribute("data-value", obj["name"]);
+    </script>
+    <script src="functions.js"></script>
+    <script>
+        for (let index = 1; index < Number(amount)+1; index++) {
+            createPost(index, obj[formID(index, "type")], obj[formID(index, "answer")],document.getElementById("secondPage").dataset.value)
+            
         }
     </script>
-    <span id="secondPage" data-value="<?php echo htmlspecialchars( $_POST["name"] ); ?>"></span><br>
     <div class="page">
     <div class="redditPage">
         <div class="post" id="post1" data-value="<?php echo htmlspecialchars( $_POST["type1"] ); ?>">
