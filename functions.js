@@ -52,18 +52,34 @@ var agoTimeIDName = "agoTime";
 var rCommentsIDName = "rComments";
 
 function createPost(index, type, answer, name) {
-    var fredditPage = document.createElement("div");
-    fredditPage.classList.add("redditPage");
     var post = createElement("div", ["post"], formID(index, "post"), "", type);
-
+    var postedBy = createElement("p", ["title"]);
+    var postedByText = document.createTextNode("Posted by ")
+    var postedByTextSpace = document.createTextNode(" ")
+    var postedBySpan1 = createElement("span", ["name"], formID(index, rNameIDName));
+    var postedBySpan2 = createElement("span", ["title"], formID(index, agoTimeIDName));
+    var title = createElement("h1", [], formID(index, titleIDName));
+    var postFooter = createElement("div", ["postFooter"]);
+    assambler([[postedBy, postedByText, postedBySpan1, postedByTextSpace, postedBySpan2], [post, postedBy, title, postFooter]]);
+    console.log(post)
 }
 
-function createElement(type, classesList, id, text = '', dataValue = '') {
+function assambler(pieces) {
+    for (var i = 0; i < pieces.length; i++) {
+        for (var j = 1; j < pieces[i].length; j++) {
+            pieces[i][0].appendChild(pieces[i][j]);
+        }
+    }
+}
+
+function createElement(type, classesList, id = '', text = '', dataValue = '') {
     var element = document.createElement(type);
     classesList.forEach(classOfList => {
         element.classList.add(classOfList);
     });
-    element.id = id;
+    if (id != '') {
+        element.id = id;
+    }
     element.dataset.value = dataValue;
     element.innerText = text;
     return element;
