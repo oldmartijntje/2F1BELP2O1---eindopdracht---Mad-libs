@@ -52,16 +52,21 @@ var agoTimeIDName = "agoTime";
 var rCommentsIDName = "rComments";
 
 function createPost(index, type, answer, name) {
-    document.getElementById(formID(index, titleIDName)).innerText = twistIt(type);
-    document.getElementById(formID(index, commentIDName)).innerText = document.getElementById(formID(index, commentIDName)).dataset.value;
-    document.getElementById(formID(index, rNameIDName)).innerText = `u\\${redditNames[Math.floor(Math.random() * redditNames.length)]}`;
-    document.getElementById(formID(index, nameIDName)).innerText = `u\\${encodeURIComponent(name.trim())}`;
-    document.getElementById(formID(index, agoTimeIDName)).innerText = ` ${Math.floor(Math.random() * 57) + 2} minutes ago`
-    document.getElementById(formID(index, rCommentsIDName)).innerText = `${Math.floor(Math.random() * 14) + 2} comments`
-    var urlPart = encodeURIComponent(`Burned by Freddit: Q=${document.getElementById(formID(index, titleIDName)).innerText} A=${document.getElementById(formID(index, commentIDName)).innerText}`.trim());
-    var url = `http://www.reddit.com/submit?url=${encodeURIComponent('https://github.com/oldmartijntje/2F1BELP2O1---eindopdracht---Mad-libs')}&title=${urlPart}`
-    document.getElementById(formID(index, shareButtonIDName)).href = url
-    document.getElementById(formID(index, shareButtonCommentIDName)).href = url
+    var fredditPage = document.createElement("div");
+    fredditPage.classList.add("redditPage");
+    var post = createElement("div", ["post"], formID(index, "post"), "", type);
+
+}
+
+function createElement(type, classesList, id, text = '', dataValue = '') {
+    var element = document.createElement(type);
+    classesList.forEach(classOfList => {
+        element.classList.add(classOfList);
+    });
+    element.id = id;
+    element.dataset.value = dataValue;
+    element.innerText = text;
+    return element;
 }
 
 function twistIt(type) {
@@ -71,6 +76,17 @@ function twistIt(type) {
 }
 
 function formID(number, name) {
-    id = `${name}${number}`;
+    var id = `${name}${number}`;
     return id;
 }
+
+    // document.getElementById(formID(index, titleIDName)).innerText = twistIt(type);
+    // document.getElementById(formID(index, commentIDName)).innerText = document.getElementById(formID(index, commentIDName)).dataset.value;
+    // document.getElementById(formID(index, rNameIDName)).innerText = `u\\${redditNames[Math.floor(Math.random() * redditNames.length)]}`;
+    // document.getElementById(formID(index, nameIDName)).innerText = `u\\${encodeURIComponent(name.trim())}`;
+    // document.getElementById(formID(index, agoTimeIDName)).innerText = ` ${Math.floor(Math.random() * 57) + 2} minutes ago`
+    // document.getElementById(formID(index, rCommentsIDName)).innerText = `${Math.floor(Math.random() * 14) + 2} comments`
+    // var urlPart = encodeURIComponent(`Burned by Freddit: Q=${document.getElementById(formID(index, titleIDName)).innerText} A=${document.getElementById(formID(index, commentIDName)).innerText}`.trim());
+    // var url = `http://www.reddit.com/submit?url=${encodeURIComponent('https://github.com/oldmartijntje/2F1BELP2O1---eindopdracht---Mad-libs')}&title=${urlPart}`
+    // document.getElementById(formID(index, shareButtonIDName)).href = url
+    // document.getElementById(formID(index, shareButtonCommentIDName)).href = url
