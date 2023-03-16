@@ -39,31 +39,12 @@
         document.getElementById("secondPage").setAttribute("data-value", obj["name"]);
     </script>
     <div class="page" id="fullPage">
-        <div class="redditPage" id="redditPage">
-            <div class="post" id="post1" data-value="<?php echo htmlspecialchars( $_POST["type1"] ); ?>">
-                <p class="title">Posted by <span class="name" id="rName1"></span> <span id="agoTime1" class="title"></span></p>
-                <h1 id="title1"></h1>
-                <div class="postFooter">
-                    <a class="footerText" id="rComments1"></a>
-                    <a id="share1" target="_blank" title="Submit to Reddit" class="footerText">share</a>
-                    <a class="footerText">save</a>
-                </div>
-            </div>
-            <div class="comment">
-                <p class="title"><span class="name", id="name1"></span> a few seconds ago</p>
-                <p id="comment1" data-value="<?php echo htmlspecialchars( $_POST["answer1"] ); ?>"></p>
-                <div class="postFooter">
-                    <a class="footerText">reply</a>
-                    <a id="shareComment1" target="_blank" title="Submit to Reddit" class="footerText">share</a>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="functions.js"></script>
         <script>
             for (let index = 1; index < Number(amount)+1; index++) {
-                createPost(index, obj[formID(index, "type")], obj[formID(index, "answer")],document.getElementById("secondPage").dataset.value)
-                
+                createPost(index, obj[formID(index, "type")], obj[formID(index, "answer")], document.getElementById("secondPage").dataset.value)
+                postFiller(index, obj[formID(index, "type")], obj[formID(index, "answer")], document.getElementById("secondPage").dataset.value)
             }
         </script>
     <?php } else { ?>
