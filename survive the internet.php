@@ -46,6 +46,7 @@
         var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
         amount = 0;
         amount = obj["amount"];
+        console.log(obj)
         document.getElementById("secondPage").setAttribute("data-value", obj["name"]);
     </script>
     <div class="page" id="fullPage">
@@ -63,22 +64,6 @@
             <div id="questions" class="form">
                 <label class="question" for="fname">Username:</label>
                 <input class="inputText" type="text" id="name" name="name" required><br>
-
-                <label class="question" for="fname" id="label1"></label>
-                <input type="hidden" id="type1" name="type1" />
-                <input class="inputText" type="text" id="answer1" name="answer1" required><br>
-                <label class="question" for="fname" id="label2"></label>
-                <input type="hidden" id="type2" name="type2" />
-                <input class="inputText" type="text" id="answer2" name="answer2" required><br>
-                <label class="question" for="fname" id="label3"></label>
-                <input type="hidden" id="type3" name="type3" />
-                <input class="inputText" type="text" id="answer3" name="answer3" required><br>
-                <label class="question" for="fname" id="label4"></label>
-                <input type="hidden" id="type4" name="type4" />
-                <input class="inputText" type="text" id="answer4" name="answer4" required><br>
-                <label class="question" for="fname" id="label5"></label>
-                <input type="hidden" id="type5" name="type5" />
-                <input class="inputText" type="text" id="answer5" name="answer5" required><br>
             </div>
             <input class="submit" type="submit">
         </form> 

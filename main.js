@@ -81,30 +81,39 @@ function createQuestions(index) {
     questionInput = createElement("input", ["inputText"], formID(index, "answer"));
     questionInput.type = "text";
     questionInput.required = true;
+    questionInput.name = formID(index, "answer");
     type = getType();
+    assambler([[document.getElementById("questions"), label, hiddenInput, questionInput]]);
     document.getElementById(formID(index, typeIDName)).value = type;
     document.getElementById(formID(index, labelIDName)).innerText = getQuestion(type);
-    assambler([[document.getElementById("questions"), label, hiddenInput, questionInput]]);
 }
 
 function changeAmount() {
+    amount = document.getElementById("questionAmountBox").value;
+    if (amount < 1) {
+        document.getElementById("questionAmountBox").value = 1;
+    }
     if (blocked) {
         return;
     }
-    amount = document.getElementById("questionAmountBox").value;
+    console.log(`${amount}, ${lastAmount}`)
     if (amount > lastAmount) {
-        for (let index = 0; index < amount; index++) {
+        for (let index = 1; index < Number(amount) + 1; index++) {
             if (index > lastAmount) {
+                console.log(index, amount, lastAmount)
                 createQuestions(index);
             }
         }
     } else if (amount < lastAmount) {
-        for (let index = 0; index < lastAmount; index++) {
+        for (let index = 1; index < Number(lastAmount) + 1; index++) {
             if (index > amount) {
+                console.log(index)
                 deleteQuestions(index);
             }
         }
     }
+    document.getElementById("amount").value = amount;
+    lastAmount = amount;
 }
 
 function assambler(pieces = []) {
