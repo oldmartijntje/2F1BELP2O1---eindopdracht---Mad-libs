@@ -92,17 +92,19 @@ function changeAmount() {
     amount = document.getElementById("questionAmountBox").value;
     if (amount < 1) {
         document.getElementById("questionAmountBox").value = 1;
+        amount = 1;
     }
     if (blocked) {
         return;
     }
+    console.log(amount, lastAmount)
     if (amount > lastAmount) {
         for (let index = 1; index < Number(amount) + 1; index++) {
             if (index > lastAmount) {
                 createQuestions(index);
             }
         }
-    } else if (amount < lastAmount) {
+    } else if (Number(amount) < Number(lastAmount)) {
         for (let index = 1; index < Number(lastAmount) + 1; index++) {
             if (index > amount) {
                 deleteQuestions(index);
@@ -110,7 +112,7 @@ function changeAmount() {
         }
     }
     document.getElementById("amount").value = amount;
-    lastAmount = amount;
+    lastAmount = Number(amount);
 }
 
 function assambler(pieces = []) {
