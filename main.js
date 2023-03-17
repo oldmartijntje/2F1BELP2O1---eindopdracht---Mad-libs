@@ -96,18 +96,15 @@ function changeAmount() {
     if (blocked) {
         return;
     }
-    console.log(`${amount}, ${lastAmount}`)
     if (amount > lastAmount) {
         for (let index = 1; index < Number(amount) + 1; index++) {
             if (index > lastAmount) {
-                console.log(index, amount, lastAmount)
                 createQuestions(index);
             }
         }
     } else if (amount < lastAmount) {
         for (let index = 1; index < Number(lastAmount) + 1; index++) {
             if (index > amount) {
-                console.log(index)
                 deleteQuestions(index);
             }
         }
