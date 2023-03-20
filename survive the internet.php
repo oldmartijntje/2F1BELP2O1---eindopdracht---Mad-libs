@@ -40,7 +40,7 @@
   
 <div class="content" id="content">
 <button id="sideBarToggle" class="marginBottom" onclick="sidebarClick()"><img id="sideBarToggleImg" class="logo grey" src="toggle.png" alt=""></button>
-<?php if ($_POST != "" && $_POST != null){ ?>
+<?php if ($_POST != "" && $_POST != null && count(array_filter($_POST))==count($_POST)){ ?>
     <span id="secondPage"></span><br>
     <script>
         var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
@@ -59,6 +59,9 @@
             }
         </script>
     <?php } else { ?>
+        <?php if (!($_POST == "" || $_POST == null) && (count(array_filter($_POST))!=count($_POST))) {
+            echo "<h1 class='error'>* Please fill in the form </h1>";}
+        ?>
         <form method="post">
             <input type="hidden" id="amount" name="amount" value="5" />
             <div id="questions" class="form">
@@ -67,6 +70,23 @@
             </div>
             <input class="submit" type="submit">
         </form> 
+        <?php if (!($_POST == "" || $_POST == null) && (count(array_filter($_POST))!=count($_POST))) {?> 
+            <script>
+                function formID(number, name) {
+                    id = `${name}${number}`;
+                    return id;
+                }
+
+                var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
+                amount = 0;
+                amount = obj["amount"];
+                console.log(obj)
+                document.getElementById("amount").value = obj["amount"];
+                document.getElementById("questionAmountBox").value = obj["amount"];
+                document.getElementById("name").value = obj["name"];
+            </script>
+            <script src="functions.js"></script>
+        <?php } ?>
     <?php } ?>
     </div>
 </body>

@@ -28,7 +28,7 @@ var typeIDName = "type";
 var answerIDName = "answer";
 var labelIDName = "label";
 
-var amount = 5;
+var amount = document.getElementById("amount").value;
 var lastAmount = 0;
 var blocked = false;
 
