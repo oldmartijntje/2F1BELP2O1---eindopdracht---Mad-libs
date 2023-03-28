@@ -43,7 +43,13 @@
 <?php if ($_POST != "" && $_POST != null && count(array_filter($_POST))==count($_POST)){ ?>
     <span id="secondPage"></span><br>
     <script>
-        var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
+        <?php 
+        $newDict = [];
+        foreach($_POST as $key=>$value) {
+            $newDict[$key] = stripslashes(trim(HTMLspecialchars($value)));
+            $newDict[$key] = str_replace('\'', '♥', $newDict[$key]);
+        } ?>
+        var obj = JSON.parse('<?php echo json_encode($newDict) ?>');
         amount = 0;
         amount = obj["amount"];
         console.log(obj)
@@ -65,7 +71,7 @@
         <form method="post">
             <input type="hidden" id="amount" name="amount" value="5" />
             <div id="questions" class="form">
-                <label class="question" for="fname">Username:</label>
+                <label class="question" for="name">Username:</label>
                 <input class="inputText" type="text" id="name" name="name" required><br>
             </div>
             <input class="submit" type="submit">
@@ -76,8 +82,13 @@
                     id = `${name}${number}`;
                     return id;
                 }
-
-                var obj = JSON.parse('<?php echo json_encode($_POST) ?>');
+                <?php 
+                $newDict = [];
+                foreach($_POST as $key=>$value) {
+                    $newDict[$key] = stripslashes(trim(HTMLspecialchars($value)));
+                    $newDict[$key] = str_replace('\'', '♥', $newDict[$key]);
+                } ?>
+                var obj = JSON.parse('<?php echo json_encode($newDict) ?>');
                 amount = 0;
                 amount = obj["amount"];
                 console.log(obj)
